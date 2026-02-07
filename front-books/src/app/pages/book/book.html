@@ -1,0 +1,39 @@
+<h2>Liste des livres</h2>
+
+<p *ngIf="error" style="color:red">{{ error }}</p>
+
+<ul>
+  <li *ngFor="let b of books">
+    {{ b.id }} - {{ b.title }} ({{ b.author }}) - {{ b.year }} - {{ b.category }}
+    <button (click)="startEdit(b)">Éditer</button>
+    <button (click)="remove(b.id)">Supprimer</button>
+  </li>
+</ul>
+
+<p *ngIf="!error && books.length === 0">Aucun livre.</p>
+
+<h2>Ajouter un livre</h2>
+
+<form (ngSubmit)="save()">
+  <div>
+    <label>Titre</label><br />
+    <input [(ngModel)]="newBook.title" name="title" required />
+  </div>
+
+  <div>
+    <label>Auteur</label><br />
+    <input [(ngModel)]="newBook.author" name="author" required />
+  </div>
+
+  <div>
+    <label>Année</label><br />
+    <input type="number" [(ngModel)]="newBook.year" name="year" required />
+  </div>
+
+  <div>
+    <label>Catégorie</label><br />
+    <input [(ngModel)]="newBook.category" name="category" required />
+  </div>
+
+  <button type="submit">Ajouter</button>
+</form>
