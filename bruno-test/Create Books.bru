@@ -1,0 +1,26 @@
+meta {
+  name: Create Books
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/books
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "La légende de Dan Jeong",
+    "author": "Dan Jeong",
+    "year": 2027,
+    "category": "Histoire"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

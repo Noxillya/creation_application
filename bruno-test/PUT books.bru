@@ -1,0 +1,26 @@
+meta {
+  name: PUT books
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:8080/api/books/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "La légende de Dan Jeong tome 2",
+    "author": "Dan Jeong",
+    "year": 2028,
+    "category": "Histoire"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
